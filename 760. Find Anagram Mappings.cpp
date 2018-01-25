@@ -22,12 +22,11 @@
 class Solution {
 public:
     vector<int> anagramMappings(vector<int>& A, vector<int>& B) {
-        vector<int> ret;
-        vector<int>::iterator it;
+        vector<int> ret; 
         
         for(int i=0;i<A.size();i++)
         {
-            int val = find(B.begin(),B.end(),A.at(i))-B.begin();
+            int val = find(B.begin(),B.end(),A.at(i))-B.begin(); // get index of element
             ret.push_back(val);
         }
         
