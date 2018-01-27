@@ -37,13 +37,22 @@ public:
     TreeNode* mergeTrees(TreeNode* t1, TreeNode* t2) {
         if(t1 != nullptr && t2 != nullptr)
         {
-            //cout<< t1->val << " " << t2->val<<endl;
             ret = new TreeNode(t1->val+t2->val);
-            //if(t1->left != nullptr || t2->left != nullptr)
-                leftHand(t1->left,t2->left,ret->left);
-            //if(t1->right != nullptr || t2->right != nullptr)
-                rightHand(t1->right,t2->right,ret->right);
-        };
+            leftHand(t1->left,t2->left,ret->left);
+            rightHand(t1->right,t2->right,ret->right);
+        }
+        else if(t1 != nullptr && t2 == nullptr)
+        {
+            ret = new TreeNode(t1->val);
+            leftHand(t1->left,nullptr,ret->left);
+            rightHand(t1->right,nullptr,ret->right);
+        }
+        else if(t1 == nullptr && t2 != nullptr)
+        {
+            ret = new TreeNode(t2->val);
+            leftHand(nullptr,t2->left,ret->left);
+            rightHand(nullptr,t2->right,ret->right);
+        }
         return ret;
     }
     
