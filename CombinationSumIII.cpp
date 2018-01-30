@@ -26,14 +26,14 @@ public:
 		engine(ret, vt, 0, k, n);
 		return ret;
 	}
-	int engine(vector<vector<int>>& ret, vector<int> vt, const int cur, const int k, const int n)
+	bool engine(vector<vector<int>>& ret, vector<int> vt, const int cur, const int k, const int n)
 	{
 		int temp = 0;
 		for (auto& a : vt) // if sum exceeds, terminate current routine.
 		{
 			temp += a;
 			if (temp > n)
-				return 1;
+				return ;
 		}
 		for (int i = cur + 1; i <= 9; i++)
 		{
@@ -48,7 +48,7 @@ public:
 					if (sum == n)
 					{
 						ret.push_back(vt);
-						return 1;
+						return ;
 					}
 					vt.pop_back();
 				}
@@ -59,6 +59,6 @@ public:
 				}
 			}
 		}
-		return 1;
+		return ;
 	}
 };
