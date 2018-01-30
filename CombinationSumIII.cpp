@@ -26,7 +26,7 @@ public:
 		engine(ret, vt, 0, k, n);
 		return ret;
 	}
-	bool engine(vector<vector<int>>& ret, vector<int> vt, const int cur, const int k, const int n)
+	void engine(vector<vector<int>>& ret, vector<int> vt, const int cur, const int k, const int n)
 	{
 		int temp = 0;
 		for (auto& a : vt) // if sum exceeds, terminate current routine.
