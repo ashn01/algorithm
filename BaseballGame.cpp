@@ -43,41 +43,28 @@ public:
     int calPoints(vector<string>& ops) {
         
         int ret=0;
-        stack<int> st;
+        vector<int> vt;
         
         for(string s : ops)
         {
             switch(s[0])
             {
                 case 43 : // +
-                    {
-                        int temp = st.top();
-                        st.pop();
-                        int temp2 = st.top();
-                        st.push(temp);
-                        st.push(temp+temp2);
-                    }
+                    vt.push_back(vt.back()+vt.at(vt.size()-2));
                     break;
                 case 67 : // C
-                    st.pop();
-                    cout<<67<<endl;
+                    vt.pop_back();
                     break;
                 case 68 : // D
-                    st.push(st.top()*2);
+                    vt.push_back(vt.back()*2);
                     break;
                 default :
-                    {
-                        int temp = stoi(s,nullptr,0);
-                        st.push(temp);
-                        break;
-                    }
+                    int temp = stoi(s,nullptr,0);
+                    vt.push_back(temp);
+                    break;
             }
         }
-        while(!st.empty())
-        {
-            ret += st.top();
-            st.pop();
-        }
+        for_each(vt.begin(),vt.end(),[&](auto a){ret+=a;});
         return ret;
     }
 };
