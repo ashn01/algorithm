@@ -41,4 +41,28 @@ public:
             make(root->right,ret,L,R);
         }
     }
+/*  void deletion(TreeNode*& ohs)
+    {
+        if(ohs != nullptr)
+        {
+            if(ohs->left != nullptr)
+            {
+                deletion(ohs->left);
+            }
+            if(ohs->right != nullptr)
+            {
+                deletion(ohs->right);
+            }
+            if(ohs->left == nullptr && ohs->right == nullptr)
+            {
+                cout << "delete : " << ohs->val<<endl;
+                delete ohs;
+                ohs = nullptr;
+            }
+        }
+    }
+    ~Solution()
+    {
+        deletion(ret);
+    }*/
 };
