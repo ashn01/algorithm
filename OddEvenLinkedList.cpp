@@ -21,11 +21,11 @@
  * };
  */
 class Solution {
+    ListNode* odd;
 public:
     ListNode* oddEvenList(ListNode* head) {
         if(head == nullptr)
             return head;
-        ListNode* odd;
         ListNode* tail = make(head,odd);
         make(head->next,tail->next);
         return odd;
@@ -41,5 +41,23 @@ public:
         }
         else
             return ret;
+    }
+    void deletion(ListNode* ohs)
+    {
+        if(ohs != nullptr)
+        {
+            if(ohs->next != nullptr)
+            {
+                ListNode* temp = ohs->next;
+                deletion(temp);
+            }
+            cout << ohs->val<<endl;
+            delete ohs;
+            ohs= nullptr;
+        }
+    }
+    ~Solution()
+    {
+        deletion(odd);
     }
 };
