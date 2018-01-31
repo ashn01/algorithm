@@ -11,9 +11,9 @@
  * };
  */
 class Solution {
+    TreeNode* ret;
 public:
     TreeNode* trimBST(TreeNode* root, int L, int R) {
-        TreeNode* ret;
         if(L == R)
         {
             ret = new TreeNode(L);
