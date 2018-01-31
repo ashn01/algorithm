@@ -42,7 +42,7 @@ public:
         else
             return ret;
     }
-    void deletion(ListNode* ohs)
+    /*void deletion(ListNode* ohs)
     {
         if(ohs != nullptr)
         {
@@ -59,5 +59,5 @@ public:
     ~Solution()
     {
         deletion(odd);
-    }
+    }*/
 };
