@@ -23,16 +23,8 @@
 class Solution {
 public:
     bool isOneBitCharacter(vector<int>& bits) {
-        int size = bits.size();
         bool ret=false;
-        for(int i=0;i<size;i++)
-        {
-            if(bits[i])
-                ret = ++i;
-            else
-                ret = false;
-        }
-        
+        for(int i=0;i<bits.size();i++) ret = bits[i] ? ++i : 0;
         return !ret;
     }
 };

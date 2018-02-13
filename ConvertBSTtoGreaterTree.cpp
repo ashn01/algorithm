@@ -29,8 +29,7 @@ public:
         if(root)
         {
             convertBST(root->right);
-            total+=root->val;
-            root->val = total;
+            root->val = total+=root->val;
             convertBST(root->left);
         }
         return root;
