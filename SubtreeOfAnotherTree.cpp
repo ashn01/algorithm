@@ -59,3 +59,26 @@ public:
         return false;
     }
 };
+
+
+/*
+class Solution {
+public:
+    bool isSubtree(TreeNode* s, TreeNode* t) {
+        bool temp;
+        static function<bool(TreeNode*,TreeNode*)> func = [&](TreeNode* s, TreeNode* t)->decltype(temp){
+            if(!s && !t)
+            return true;
+            if(s && t)
+            {
+                if(s->val == t->val)
+                    return func(s->left,t->left) && func(s->right,t->right);
+                else return false;
+            }
+            return false;
+        };
+        
+        return func(s,t) ? true : (s->left ? isSubtree(s->left,t) : false) || (s->right ? isSubtree(s->right,t):false);
+    }
+};
+*/
