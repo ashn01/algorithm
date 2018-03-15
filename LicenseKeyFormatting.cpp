@@ -46,3 +46,29 @@ public:
         return str;
     }
 };
+
+/* second answer
+class Solution {
+public:
+    string licenseKeyFormatting(string S, int K) {
+        string str;
+        int cnt=0;
+        for_each(S.rbegin(),S.rend(),[&](char c){
+            if(c != '-')
+            {
+                cnt++;
+                if(c >= 97) 
+                    str+=c-32;
+                else
+                    str+=c;
+                if(!(cnt%K ))
+                    str+='-';
+            }
+        });
+        if (str[str.length()-1] == '-')
+            str.pop_back();
+        reverse(str.begin(),str.end());
+        return str;
+    }
+};
+*/
