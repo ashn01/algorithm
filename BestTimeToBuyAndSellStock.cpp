@@ -14,6 +14,30 @@
 //
 //In this case, no transaction is done, i.e. max profit = 0.
 
+// newest
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        vector<pair<int,int>> vt;
+        int prev = INT_MAX;
+        int ret = 0;
+        for(auto& a : prices)
+        {
+            if(prev < a)
+                for(auto& m : vt)
+                    if(a - m.first > m.second)
+                        m.second = a - m.first;
+            vt.push_back(make_pair(a,0));
+            prev=a;
+        }
+        for(auto& a : vt)
+            if(ret < a.second)
+                ret = a.second;
+        return ret;
+    }
+};
+
+// old
 class Solution {
 public:
     int maxProfit(vector<int>& prices) {
